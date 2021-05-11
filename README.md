@@ -11,12 +11,12 @@ Inspired by [flutter_verification_code](https://pub.dev/packages/flutter_verific
 * Automatic focus control. You don't need to define the focus switching logic yourself. All you need to do in your cell widgets is to call the `focus.nextFocus()` when the input to the current field is complete - verification_code_builder will take care of the rest.
 
 ## WIP
-[ ] Support for derived number of characters in cells
-[ ] Cells RegExp and `onError` callback support
-[ ] `isEditing` flag
-[ ] `getCurrentIndex` method
-[ ] Logo
-[ ] License
+1. Support for derived number of characters in cells
+2. Cells RegExp and `onError` callback support
+3. `isEditing` flag
+4. `getCurrentIndex` method
+5. Logo
+6. License
 
 ## Usage
 1) Import the library:
@@ -86,7 +86,7 @@ Widget _generateSingleDigit(
 ```
 
 ## Showcase
-![Showcase|100x100, 10%](showcase1.gif)
+<img src=".github/showcase1.gif" alt="Showcase" width="300">
 
 ## Contributing
 I will be glad to hear about your successes, ideas and problems that you have encountered while using this widget. You can contact me on [Twitter] and share your experience. I will also be very happy if you send me a small video or gif on which you will show what form for entering the code you got. If you find a bug, please describe it (either on [GitHub], or on [Twitter]). Pull requests with bug fixing and improvements are strongly encouraged and I will be happy to leave a mention of your contribution in the README. I will also be glad to any spelling corrections :)
