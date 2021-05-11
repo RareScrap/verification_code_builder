@@ -1,3 +1,5 @@
+[![Pub Version](https://img.shields.io/pub/v/verification_code_builder?color=green)](https://pub.dev/packages/verification_code_builder)
+
 # verification_code_builder
 
 Infinitely customizable widget for creating code input forms.
