@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Container _generateSingleDigit(int i, FocusNode focus, TextEditingController textEditingController, PasteMethod pasteMethod) {
+  Widget _generateSingleDigit(int i, FocusNode focus, TextEditingController textEditingController, PasteMethod pasteMethod) {
     return Container(
       height: 48,
       width: 48,

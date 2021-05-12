@@ -10,12 +10,18 @@ class VerificationCode extends StatefulWidget { // TODO: Stateless?
 
   final int length;
 
+  final bool enableHorizontalScroll;
+
+  final MainAxisAlignment mainAxisAlignment;
+
   final Widget Function(int index, FocusNode focus, TextEditingController textEditingController, PasteMethod pasteMethod) builder;
 
   VerificationCode({
-    this.builder,
+    this.builder, // TODO: required
     this.onCompleted,
     this.length = 4,
+    this.enableHorizontalScroll = true,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   });
 
   @override
@@ -58,16 +64,22 @@ class _VerificationCodeState extends State<VerificationCode> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: _buildListWidget(),
-            ),
-          ],
-        ));
+    final content = Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: widget.mainAxisAlignment,
+          children: _buildListWidget(),
+        ),
+      ],
+    );
+
+    if (widget.enableHorizontalScroll) {
+      return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: content);
+    } else {
+      return content;
+    }
   }
 
   @override
