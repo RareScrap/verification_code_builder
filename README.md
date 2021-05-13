@@ -18,7 +18,6 @@ Inspired by [flutter_verification_code](https://pub.dev/packages/flutter_verific
 3. `isEditing` flag
 4. `getCurrentIndex` method
 5. Logo
-6. License
 
 ## Usage
 1) Import the library:
