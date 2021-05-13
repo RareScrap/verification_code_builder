@@ -21,8 +21,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key}) : super(key: key);
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -72,9 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
             fontWeight: FontWeight.w700,
           ),
           onChanged: (str) => {
-            if (str.isNotEmpty) {
-              i == 5 ? FocusScope.of(context).unfocus() : focus.nextFocus()
-            }
+            // if (str.isNotEmpty) {
+              i == 5 ? FocusScope.of(context).unfocus() : focus.nextFocus() // TODO: Слетает фокус при стирании последней ячейки
+            // }
           },
         ),
       ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -22,8 +23,8 @@ class MaterialVerificationSelectionControls extends MaterialTextSelectionControl
 
   @override
   Future<void> handlePaste(TextSelectionDelegate delegate) async {
-    var data = await Clipboard.getData(Clipboard.kTextPlain);
-    pasteMethod(data.text);
+    final data = await Clipboard.getData(Clipboard.kTextPlain);
+    if (data?.text?.isNotEmpty ?? false) pasteMethod(data!.text!);
   }
 
   @override
@@ -44,8 +45,8 @@ class CupertinoVerificationSelectionControls extends CupertinoTextSelectionContr
 
   @override
   Future<void> handlePaste(TextSelectionDelegate delegate) async {
-    var data = await Clipboard.getData(Clipboard.kTextPlain);
-    pasteMethod(data.text);
+    final data = await Clipboard.getData(Clipboard.kTextPlain);
+    if (data?.text?.isNotEmpty ?? false) pasteMethod(data!.text!);
   }
 
   @override

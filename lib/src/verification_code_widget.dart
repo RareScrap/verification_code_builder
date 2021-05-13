@@ -1,7 +1,13 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/widgets.dart';
 
 import 'backspace_text_editing_controller.dart';
 
+typedef Widget VerificationCodeBuilder(
+    int index,
+    FocusNode focus,
+    TextEditingController textEditingController,
+    PasteMethod pasteMethod);
 typedef void PasteMethod(String str);
 
 class VerificationCode extends StatefulWidget { // TODO: Stateless?
@@ -14,11 +20,11 @@ class VerificationCode extends StatefulWidget { // TODO: Stateless?
 
   final MainAxisAlignment mainAxisAlignment;
 
-  final Widget Function(int index, FocusNode focus, TextEditingController textEditingController, PasteMethod pasteMethod) builder;
+  final VerificationCodeBuilder builder;
 
   VerificationCode({
-    this.builder, // TODO: required
-    this.onCompleted,
+    required this.builder,
+    required this.onCompleted,
     this.length = 4,
     this.enableHorizontalScroll = true,
     this.mainAxisAlignment = MainAxisAlignment.center,
@@ -99,8 +105,8 @@ class _VerificationCodeState extends State<VerificationCode> {
     return verifyCode;
   }
 
-  bool get isInputComplete => _listControllerText.firstWhere(
-          (element) => element.text.isEmpty, orElse: () => null) == null;
+  bool get isInputComplete => _listControllerText.firstWhereOrNull(
+          (element) => element.text.isEmpty) == null;
 
   // TODO: Не учитывает inputFormatters (особенно LengthLimitingTextInputFormatter(2))
   void paste(String str) { // TODO: Не срабатывает при пасте из гугл-клавиатуры
